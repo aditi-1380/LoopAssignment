@@ -9,14 +9,13 @@ This project implements a data ingestion system with:
 - Real-time status tracking via `/status/:ingestion_id`  
 
 2.  How It Works
-   1. **POST /ingest**  
+   **POST /ingest**  
    Accepts a list of IDs and priority.  
    IDs are broken into batches (max 3 IDs each).  
    Each batch is queued and processed asynchronously based on:
    - Priority (HIGH > MEDIUM > LOW)
    - Timestamp (FIFO)
-
-   2. **GET /status/:ingestion_id**  
+   **GET /status/:ingestion_id**  
    Returns status of ingestion (`yet_to_start`, `triggered`, or `completed`)  
    Includes batch details and their individual statuses.
 
